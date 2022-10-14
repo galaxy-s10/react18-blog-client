@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'MiSans';
+  src: url('@/assets/font/MiSans-Normal.ttf');
+}
+
+.about {
+  background-color: bisque;
+  padding: 20px;
+
+  .myfont {
+    font-family: 'MiSans';
+  }
+}

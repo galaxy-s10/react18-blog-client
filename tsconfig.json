@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    // "module": "CommonJS", // "target": "esnext"引起的连锁反应，，，仅当 '--module' 标志设置为 'es2020'、'es2022'、'esnext'、 'commonjs'、'amd'、'system'、'umd'、'node12' 或 'nodenext' 时，才支持动态导入。
+    "module": "ESNext",
+    "strict": true,
+    "noImplicitAny": false,
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    "resolveJsonModule": true, //解析json模块
+    "moduleResolution": "node", // "target": "esnext"引起的连锁反应，，，moduleResolution就需要设置为node，否则webpack.common.ts里面引入的包会提示设置moduleResolution:node。也可以设置"module": "commonjs"解决。
+    "esModuleInterop": true, // ES模块互操作，import React from 'react';react是module.exports导出的，因此需要设置该属性。而且诸如.eslintrc.js，.versionrc.js，babel.config.js都是modules.exports导出的，也需要设置该属性
+    "allowSyntheticDefaultImports": true, //esModuleInterop为true的时候，会将allowSyntheticDefaultImports设置为true
+    "forceConsistentCasingInFileNames": true, // 在文件名中强制使用一致的大小写
+    "skipLibCheck": true, //跳过d.ts声明文件的类型检查。
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "script/*": ["script/*"]
+    }
+    // "paths": {
+    //   "@/*": ["./src/*"] //这样写的话，@/不会提示路径，得使用baseUrl:'./'+paths:{"@/*": ["src/*"]}这样才的话@/才会提示路径
+    // }
+  },
+  // ts-node的时候会读取这里的配置
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS" // 指定生成什么模块代码。
+    },
+    "transpileOnly": true // 只编译，报警告或者错误一样运行
+  },
+  // 仅仅匹配这些文件，除了src以外的文件都不会被匹配
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "script/**/*.ts",
+    "./babel.config.js",
+    "./.eslintrc.js",
+    "./postcss.config.js"
+  ]
+}
