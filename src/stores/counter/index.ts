@@ -5,6 +5,10 @@ const counterSlice = createSlice({
   name: 'counter',
   initialState: { num: 10 },
   reducers: {
+    setNum(state, { payload }) {
+      console.log('reducers-setNum', state, payload);
+      state.num = payload;
+    },
     addNum(state, { payload }) {
       console.log('reducers-addNum', state, payload);
       state.num += payload;
@@ -20,7 +24,7 @@ const counterSlice = createSlice({
 });
 
 // 返回actions
-export const { addNum, delNum } = counterSlice.actions;
+export const { addNum, delNum, setNum } = counterSlice.actions;
 // 返回reducer
 export const { reducer } = counterSlice;
 // 返回slice

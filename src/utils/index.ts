@@ -21,3 +21,30 @@ export const mockAjax = (flag?: boolean) => {
     }, 500);
   });
 };
+
+/**
+ * 获取日期当天的开始时间到结束时间
+ */
+export function dateStartAndEnd(date) {
+  const y = date.getFullYear();
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  // eslint-disable-next-line
+  const startTime = `${y}-${m}-${d} 00:00:00`;
+  // eslint-disable-next-line
+  const endTime = `${y}-${m}-${d} 23:59:59`;
+  return {
+    startTime,
+    endTime,
+  };
+}
+
+// 解析ip
+export const parseIpInfo = (ipInfo) => {
+  if (ipInfo.province.length <= 0) {
+    return '';
+  }
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+  const str = `${ipInfo.province} - ${ipInfo.city}`;
+  return str;
+};

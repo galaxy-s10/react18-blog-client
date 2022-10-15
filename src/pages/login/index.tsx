@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import style from './index.module.scss';
+import style from './style.module.scss';
 
 const Home = () => {
   useEffect(() => {

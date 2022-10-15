@@ -65,7 +65,7 @@ export default new Promise((resolve) => {
           },
           proxy: {
             '/api': {
-              target: 'http://localhost:3300',
+              target: 'https://hsslive.cn/prodapi',
               secure: false, // 默认情况下（secure: true），不接受在HTTPS上运行的带有无效证书的后端服务器。设置secure: false后，后端服务器的HTTPS有无效证书也可运行
               /**
                * changeOrigin，是否修改请求地址的源
@@ -74,24 +74,7 @@ export default new Promise((resolve) => {
                */
               changeOrigin: true,
               pathRewrite: {
-                // '^/api': '', // 效果：/api/link/list ==> http://localhost:3300/link/list
-                '^/api': '/admin/', // 效果：/api/link/list ==> http://localhost:3300/admin/link/list
-              },
-            },
-            '/prodapi': {
-              target: 'http://42.193.157.44:3200',
-              secure: false,
-              changeOrigin: true,
-              pathRewrite: {
-                '^/prodapi': '/admin/',
-              },
-            },
-            '/betaapi': {
-              target: 'http://42.193.157.44:3300',
-              secure: false,
-              changeOrigin: true,
-              pathRewrite: {
-                '^/betaapi': '/admin/',
+                '^/api': '',
               },
             },
           },

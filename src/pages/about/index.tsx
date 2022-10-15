@@ -1,8 +1,8 @@
 import { memo, useEffect } from 'react';
 
-import style from './index.module.scss';
+import style from './style.module.scss';
 
-const Home = () => {
+const About = () => {
   useEffect(() => {
     console.log('About页面生命周期mounted');
   }, []);
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default memo(Home);
+export default memo(About);

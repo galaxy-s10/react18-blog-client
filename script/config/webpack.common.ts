@@ -78,11 +78,8 @@ const sassRules = (isProduction: boolean, module?: boolean) => {
       loader: 'sass-loader',
       options: {
         sourceMap: false,
-        // modules: module
-        //   ? {
-        //       localIdentName: '[name]_[local]_[hash:base64:5]',
-        //     }
-        //   : undefined,
+        // https://github.com/vercel/next.js/discussions/19042
+        additionalData: `@import '~@/style/global.scss';`, // 根据sass-loader版本选择additionalData和prependData
       },
     },
   ].filter(Boolean);
@@ -263,7 +260,7 @@ const commonConfig = (isProduction) => {
         //   sideEffects: true,
         // },
         {
-          test: /\.(jpg|jpeg|png|gif|svg)$/,
+          test: /\.(jpg|jpeg|png|gif|svg|webp)$/,
           type: 'asset',
           generator: {
             filename: 'img/[name]-[contenthash:6][ext]',
