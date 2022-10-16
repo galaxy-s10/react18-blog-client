@@ -6,7 +6,7 @@
 # Email: 2274751790@qq.com
 # FilePath: /github/react18-blog-client/build.sh
 # Github: https://github.com/galaxy-s10
-# LastEditTime: 2022-10-16 08:52:29
+# LastEditTime: 2022-10-16 08:59:49
 # LastEditors: shuisheng
 ###
 
@@ -52,7 +52,7 @@ pnpm config set @billd:registry http://registry.hsslive.cn/
 
 echo 查看当前pnpm镜像:
 pnpm config get registry
-pnpm config set @billd:registry
+pnpm config get @billd:registry
 
 echo 开始安装依赖:
 pnpm install
