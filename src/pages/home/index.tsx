@@ -14,7 +14,8 @@ const Home = () => {
   const { types, list, nowPage, pageSize, hasMore, total } = article;
 
   console.log('重新渲染', list, nowPage, pageSize, hasMore, total);
-
+  // let a = 1;
+  // a = '1';
   // 生命周期
   useEffect(() => {
     console.log('home生命周期');
@@ -40,7 +41,7 @@ const Home = () => {
           dispatch(setNowPage(nowPage + 1));
         }}
       >
-        setNowPage
+        setNowPagew-
       </button>
       {list.map((item) => {
         return (

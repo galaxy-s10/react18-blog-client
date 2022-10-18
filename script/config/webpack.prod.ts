@@ -16,6 +16,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import { version as reduxVersion } from 'redux/package.json';
 import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
+import WebpackBar from 'webpackbar';
 
 import { chalkINFO } from '../utils/chalkTip';
 
@@ -146,6 +147,8 @@ export default new Promise((resolve) => {
       // }
     },
     plugins: [
+      // 构建进度条
+      new WebpackBar(),
       // http压缩
       new CompressionPlugin({
         test: /\.(css|js)$/i,

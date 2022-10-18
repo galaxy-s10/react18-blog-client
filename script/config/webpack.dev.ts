@@ -3,8 +3,10 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import portfinder from 'portfinder';
 import webpack, { Configuration } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import WebpackBar from 'webpackbar';
 
 import TerminalPrintPlugin from '../TerminalPrintPlugin';
+import { webpackBarEnable } from '../constant';
 import { chalkINFO } from '../utils/chalkTip';
 import { outputStaticUrl } from '../utils/outputStaticUrl';
 import { resolveApp } from '../utils/path';
@@ -79,7 +81,10 @@ export default new Promise((resolve) => {
             },
           },
         },
+        // @ts-ignore
         plugins: [
+          // 构建进度条
+          webpackBarEnable && new WebpackBar(),
           new webpack.ProvidePlugin({
             React: 'react', // 如果报错：React is not defined，则自动加载react
           }), // 自动加载，而不必模块import或require,https://webpack.js.org/plugins/provide-plugin/
@@ -104,7 +109,7 @@ export default new Promise((resolve) => {
             local: `http://localhost:${port}${outputStaticUrl(false)}`,
             network: `http://${localIPv4!}:${port}${outputStaticUrl(false)}`,
           }),
-        ],
+        ].filter(Boolean),
       };
       resolve(devConfig);
     })

@@ -6,7 +6,7 @@
 # Email: 2274751790@qq.com
 # FilePath: /github/react18-blog-client/build.sh
 # Github: https://github.com/galaxy-s10
-# LastEditTime: 2022-10-16 08:59:49
+# LastEditTime: 2022-10-16 10:42:32
 # LastEditors: shuisheng
 ###
 
@@ -68,8 +68,3 @@ else
 fi
 
 npx cross-env REACT_APP_RELEASE_PROJECT_NAME=$JOBNAME REACT_APP_RELEASE_PROJECT_ENV=$ENV webpack --config ./script/config/webpack.common.ts --env production
-
-echo 清除buff/cache:
-
-sync
-echo 3 >/proc/sys/vm/drop_caches
