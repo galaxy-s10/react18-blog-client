@@ -6,10 +6,7 @@ const path = require('path');
 const allFile = [];
 const ignore = ['.DS_Store', '.git', 'dist', 'node_modules'];
 const localDir = path.resolve(__dirname);
-const giteeDir = path.resolve(
-  __dirname,
-  '../../jenkins/react17-webpack5-template'
-);
+const giteeDir = path.resolve(__dirname, '../../jenkins/react18-blog-client');
 
 const dir = fs.readdirSync(localDir).filter((item) => {
   if (ignore.includes(item)) {
