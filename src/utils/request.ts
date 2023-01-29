@@ -21,9 +21,7 @@ export interface IResponse<T> {
 // 请求拦截
 service.interceptors.request.use(
   (cfg) => {
-    console.log(cache.getStorageExp('env'), 222);
-
-    cfg.baseURL = '/api';
+    cfg.baseURL = '/prodapi/';
     const token = cache.getStorageExp('token');
     if (token) {
       // @ts-ignore

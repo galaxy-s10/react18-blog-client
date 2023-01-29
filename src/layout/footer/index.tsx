@@ -1,34 +1,16 @@
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
-import { memo, useEffect } from 'react';
+import { memo, useState } from 'react';
 
-import style from './style.module.scss';
+const FatherCpt = () => {
+  const [count, setCount] = useState(1);
 
-dayjs.extend(duration);
-
-const LayoutFooter = () => {
-  // 生命周期
-  useEffect(() => {
-    console.log('footer生命周期');
-  }, []);
+  console.log('FatherCpt重新渲染了');
 
   return (
     <div>
-      <div className={style['footer']}>
-        <p>
-          博客已运行xxx
-          <span className={style['ani']}>(=◡=)☆</span>
-        </p>
-        <a
-          href="http://beian.miit.gov.cn"
-          target="__blank"
-          className={style['beianhao']}
-        >
-          粤ICP备19114467号-2
-        </a>
-      </div>
+      <div>count:{count}</div>
+      <button onClick={() => setCount(count + 1)}>setCount</button>
     </div>
   );
 };
 
-export default memo(LayoutFooter);
+export default memo(FatherCpt);

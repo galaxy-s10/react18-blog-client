@@ -10,6 +10,7 @@
   "scripts": {
     "build": "webpack --config ./script/config/webpack.common.ts --env production",
     "commit": "cz",
+    "copy": "node ./handleGiteeJenkins.js",
     "lint": "eslint --config ./.eslintrc.js . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint --config ./.eslintrc.js . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "husky install",

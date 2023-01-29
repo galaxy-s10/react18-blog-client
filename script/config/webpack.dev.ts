@@ -34,6 +34,14 @@ export default new Promise((resolve) => {
         infrastructureLogging: {
           level: 'none',
         },
+        cache: {
+          type: 'filesystem',
+          buildDependencies: {
+            // https://webpack.js.org/configuration/cache/#cacheallowcollectingmemory
+            // 建议cache.buildDependencies.config: [__filename]在您的 webpack 配置中设置以获取最新配置和所有依赖项。
+            config: [__filename],
+          },
+        },
         devServer: {
           client: {
             logging: 'none', // https://webpack.js.org/configuration/dev-server/#devserverclient
@@ -66,8 +74,8 @@ export default new Promise((resolve) => {
             directory: resolveApp('./public/'),
           },
           proxy: {
-            '/api': {
-              target: 'https://hsslive.cn/prodapi',
+            '/prodapi': {
+              target: 'https://api.hsslive.cn/prodapi/',
               secure: false, // 默认情况下（secure: true），不接受在HTTPS上运行的带有无效证书的后端服务器。设置secure: false后，后端服务器的HTTPS有无效证书也可运行
               /**
                * changeOrigin，是否修改请求地址的源
@@ -76,7 +84,7 @@ export default new Promise((resolve) => {
                */
               changeOrigin: true,
               pathRewrite: {
-                '^/api': '',
+                '^/prodapi': '',
               },
             },
           },
