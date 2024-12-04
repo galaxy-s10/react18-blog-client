@@ -1,9 +1,7 @@
-import { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { NODE_ENV, outputStaticUrl } from 'script/utils/outputStaticUrl';
-
 import './style/index.scss';
 
 import App from './App';

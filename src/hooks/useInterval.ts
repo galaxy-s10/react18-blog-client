@@ -6,7 +6,7 @@ export const useInterval = (
   options: { immediate?: boolean } = {}
 ) => {
   const savedCallback = useRef<any>();
-  const timerRef = useRef<NodeJS.Timer>();
+  const timerRef = useRef<any>();
   savedCallback.current = callback;
 
   const { immediate } = options;
